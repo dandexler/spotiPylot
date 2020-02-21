@@ -1,6 +1,8 @@
 # spotiPylot
 The collaborative Spotify playlist generator, built in Python.
 
+V1 will be a rudimentary proof-of-concept completed in ~8 hours. Development may continue beyond the scope of the exercise.
+
 ## Getting Started
 
 ## Prerequisites
