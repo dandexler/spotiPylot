@@ -12,6 +12,10 @@ V1 will be a rudimentary proof-of-concept completed in ~8 hours. Development may
 ## Examples
 
 ## Built With
+<a href = "https://github.com/pandas-dev/pandas"> pandas 1.0.1 </a>
+<br><a href = "https://github.com/scikit-learn/scikit-learn"> scikit-learn 0.22.1 </a>
+<br><a href = "https://github.com/plamere/spotipy"> spotipy 2.9.0 </a>
+
 
 ## Authors
 David Andexler
