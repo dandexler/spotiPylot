@@ -7,7 +7,7 @@ V1 is a rudimentary proof-of-concept completed in ~8 hours. Development may cont
 Download the working Jupyter Notebook concept.ipynb. Follow Client Authorization instructions on Spotify for Developers.
 
 ## Methodology
-The methodology most utilizes Principal Component Analysis with fuzzy c-means clustering in scikit-fuzzy.
+The methodology utilizes Principal Component Analysis with fuzzy c-means clustering in scikit-fuzzy.
 
 ## Examples
 Coming soon.
