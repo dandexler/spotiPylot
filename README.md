@@ -1,8 +1,10 @@
-<img src="images/spotiPylot_github_large_final.png" height=250>
-## The collaborative Spotify playlist generator.
-## Built in Python.
+<img src="images/spotiPylot_github_large_final.png" height=250></img>
 
+## The collaborative Spotify playlist generator. Built in Python.
+
+<br>
 Current Version: V1.2
+<br>
 Status: Functional Concept
 
 ## Overview
