@@ -1,6 +1,7 @@
 <img src="images/spotiPylot_github_large_final.png" height=250></img>
 
 ## The collaborative Spotify playlist generator. Built in Python.
+### Collaborate with friends, family, and colleagues on a Spotify playlist. Find music everyone is likely to enjoy!
 
 <br>
 Current Version: V1.2
@@ -8,7 +9,9 @@ Current Version: V1.2
 Status: Functional Concept
 
 ## Overview
+User Problem: Collaborative playlists are enjoyable and facilitate social interaction between friends and colleagues. However, they can be time-consuming to generate and there is no guarantee each collaborator will enjoy all tracks.
 
+Proposed Solution: Analyze the audio features of users' selected playlists. Use these features to quickly produce a playlist comprised of tracks all contributors are likely to enjoy based on their inputs.
 ## Next Steps
 <ul>
   <li> <strike> Allow custom input of users/playlists </strike> </li>
