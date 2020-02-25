@@ -1,2 +1,6 @@
 spotiPylot_github_small.png
 spotiPylot_github_large.png
+spotiPylot_github_small_final.png
+spotiPylot_github_large_final.png
+
+
