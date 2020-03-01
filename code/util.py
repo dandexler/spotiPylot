@@ -3,10 +3,11 @@ import pandas as pd
 import seaborn as sns
 
 def get_users():
+    """
+    Purpose: Prompts the user for Spotify usernames or Spotify IDs. Appends these usernames to a list.
+    :return: (list) List of usernames. Usernames not validated with Spotify in this function.
+    """
 
-    # purpose: Prompts the user for Spotify usernames or Spotify IDs. Appends these usernames to a list
-    # params: None
-    # return: list of usernames (validated when retrieving playlists)
     cont = 'y'
     users = []
     while cont == 'y':
@@ -20,12 +21,12 @@ def get_users():
 
 
 def get_playlists(spotify, users):
-
-    # purpose: Allows user to select playlists to include in the analysis
-    # params: users - List of Spotify usernames or user IDs
-    #         spotify - Spotify Web API object
-    # requires: import pandas as pd
-    # returns: all_playlists - DataFrame of selected playlist names, description, id, tracks, total tracks
+    """
+    Purpose: Allows user to select playlists to include in the analysis.
+    :param spotify: (object) Spotify Web API object.
+    :param users: (list) List of Spotify usernames or user IDs.
+    :return: (DataFrame) all_playlists - DataFrame of selected playlist names, description, id, tracks, total tracks.
+    """
 
     # Playlist information DataFrame
     playlist_information = pd.DataFrame(columns=['name', 'description', 'id', 'tracks', 'total_tracks'])
@@ -71,10 +72,12 @@ def get_playlists(spotify, users):
 
 
 def get_track_features(spotify, playlist_information):
-    # purpose: get audio features for each track in the selected playlists
-    # params: spotify - Spotify Web API object
-    #         playlist_information - Dataframe of playlist information
-    # returns: Dataframe of track features for all selected user playlists
+    """
+    Purpose: Get audio features for each track in the selected playlists
+    :param spotify:  (object) Spotify Web API object
+    :param playlist_information: (pandas DataFrame) DataFrame of playlist information
+    :return: (DataFrame) Track features for all selected user playlists
+    """
 
     start = 0
     # Initialize empty dataframe with features of interest
@@ -119,10 +122,12 @@ def get_track_features(spotify, playlist_information):
 
 
 def plot_distributions(df, drop=None):
-    # purpose: Creates distribution plots in seaborn for numeric DataFrames
-    # params: df - a pandas DataFrame
-    #         drop - a list of column names passed in as strings to remove from dataframe before generating plots
-    # return: for each playlist, variable - plots shaded kernel density estimate in console
+    """
+    Purpose: Creates distribution plots in Seaborn for numeric DataFrames.
+    :param df: (pandas DataFrame) Pandas DataFrame containing numeric values.
+    :param drop: (list) column names passed in as strings to remove from DataFrame before generating plots.
+    :return: (Print to console) Seaborn plots of kernel density estimate for each variable, grouped by playlist.
+    """
 
     # Argument validation
     if not all(isinstance(column, str) for column in drop):
@@ -144,3 +149,37 @@ def plot_distributions(df, drop=None):
         p.set_title('{} distribution'.format(var).title())
         plt.legend()
         plt.show()
+
+def create_playlist(tracks, spotify, username):
+    """
+    Purpose: Create a new Spotify playlist.
+    :param tracks: (Pandas DataFrame) Pandas DataFrame containing songs to be added. Must contain column named 'id' that
+    references the individual track id.
+    :param spotify: (object) Spotify Web API object.
+    :param username: (string) Spotify username/user ID for new playlist owner.
+    :return: (boolean) True, if function completes as intended.
+    """
+
+    while True:
+        name = input("\n Please choose a name for the new playlist: ")
+        if len(name) <= 20:
+            break
+        else:
+            print("Playlist names should be maximum 20 characters. Please re-enter.")
+
+    while True:
+        description = input("\nAdd a description: ")
+        if len(description) <= 100:
+            break
+        else:
+            print("Playlist descriptions should be maximum 100 characters. Please re-enter.")
+
+    new_playlist = spotify.user_playlist_create(username,
+                                                name=name,
+                                                public=True,
+                                                description=description)
+    spotify.user_playlist_add_tracks(user=username,
+                                     playlist_id=new_playlist['id'],
+                                     tracks=tracks.track_id,
+                                     position=None)
+    return True
