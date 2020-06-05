@@ -22,15 +22,8 @@ Proposed Solution: Analyze the audio features of users' selected playlists. Use 
 </ul>
 
 ## Getting Started
-Exercise Evaluators:
-Version 1.0 of this endeavor was submitted within the constraints imposed by the exercise (2-23-2020 by 23:59 EST). Note that V1.0 is a rudimentary proof-of-concept completed in ~10 hours. This version can be accessed with the following:
 
-```
-cd <YOUR_DIRECTORY>
-git clone https://www.github.com/dandexler/spotiPylot
-git checkout 2cf74868ba89ff1745ee38a87ee1baa89b1398fd
-```
-All others - latest version:
+Latest version:
 ```
 cd <YOUR_DIRECTORY>
 git clone https://www.github.com/dandexler/spotiPylot
